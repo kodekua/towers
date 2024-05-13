@@ -1,3 +1,10 @@
+import pandas as pd
+
+class Priority:
+    def __init__(self) -> None:
+        self.clusters = pd.DataFrame(columns=['cell','mcc','net','area','lon','lat','zone','road', \
+                                              'dist_road','traffic','priority','clusterId','dist_cc','sub_clusterId'])
+
 def update_cell_priority(sub_cluster, cellId, threshold1, threshold2):
     # This function updates the priority of a given cell site
 
@@ -35,7 +42,7 @@ def update_priorities(dataframe, threshold1, threshold2):
     priorities= []
     
     for cId in clusters_Id:
-        tmp= update_cluster_priority(cId, threshold1, threshold2):
+        tmp= update_cluster_priority(cId, threshold1, threshold2)
         priorities= priorities + tmp
     
     dataframe.priority= priorities
